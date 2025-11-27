@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gowtham — Portfolio</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body{
+      font-family: "Segoe UI", sans-serif;
+      background:#2b2d2f;
+      color:#e6e6e6;
+      line-height:1.45;
+    }
+
+    :root{
+      --muted:#9aa0a6;
+      --accent:#27c94f;
+      --card:#151515;
+      --panel:#0f0f10;
+    }
+
+    a { color:inherit; text-decoration:none; }
+    .container{ width:92%; max-width:1200px; margin:auto; }
+
+    header{
+      position:fixed;
+      top:0; left:0; right:0;
+      background:rgba(0,0,0,0.35);
+      backdrop-filter:blur(6px);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      padding:18px 0;
+      z-index:10;
+    }
+    nav ul{ display:flex; gap:22px; align-items:center; list-style:none; }
+    nav a{ color:var(--muted); font-weight:600; font-size:14px; }
+
+    .btn-small{
+      background:var(--accent); color:#000;
+      padding:8px 14px; border-radius:999px;
+      font-weight:700;
+    }
+
+    main{
+      padding-top:100px;
+      display:grid;
+      grid-template-columns:1fr 350px;
+      gap:30px;
+    }
+
+    @media(max-width:1000px){
+      main{ grid-template-columns:1fr; }
+    }
+
+    .hero-card{
+      background:#171717;
+      padding:36px; border-radius:14px;
+      display:flex; gap:30px; align-items:center;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .hero-img-wrap{
+      width:320px; height:320px; border-radius:14px;
+      overflow:hidden; background:#222;
+      flex-shrink:0;
+    }
+    .hero-img-wrap img{ width:100%; height:100%; object-fit:cover; }
+
+    .badge{
+      background:rgba(255,255,255,0.1);
+      padding:7px 10px; border-radius:8px;
+      font-size:12px; color:var(--muted);
+    }
+
+    .primary-cta{
+      background:var(--accent); color:#000;
+      padding:12px 18px; border-radius:999px;
+      font-weight:700;
+    }
+
+    .ghost-cta{
+      padding:10px 16px; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.15);
+      color:var(--muted);
+    }
+
+    .section{
+      padding:28px 0;
+    }
+    .section h2{
+      color:#fff; margin-bottom:12px;
+    }
+
+    .skills-grid{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:14px;
+    }
+    .skill{
+      background:#151515; padding:18px;
+      border-radius:12px; border:1px solid rgba(255,255,255,0.05);
+    }
+    .skill h3{ color:#fff; margin-bottom:8px; }
+
+    .featured{
+      background:#0f0f10; padding:18px;
+      border-radius:14px; border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .project{
+      display:flex; gap:14px; background:#111;
+      padding:12px; border-radius:12px; margin-bottom:12px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+    .project-thumb{
+      width:110px; height:70px; overflow:hidden;
+      border-radius:8px; background:#222;
+    }
+    .project-thumb img{ width:100%; height:100%; object-fit:cover; }
+
+    .contact-grid{
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .contact-card{
+      background:#151515; padding:14px; border-radius:12px;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    form.contact-form{
+      display:flex; flex-direction:column;
+      gap:12px; margin-top:18px; max-width:520px;
+    }
+    input,textarea{
+      padding:12px; border-radius:8px; border:1px solid #333;
+      background:#0f0f10; color:#fff;
+    }
+    textarea{ min-height:120px; }
+
+    .contact-submit{
+      padding:12px 18px; border-radius:999px;
+      background:var(--accent); color:#000;
+      font-weight:700; border:none; cursor:pointer;
+      width:fit-content;
+    }
+
+    footer{ margin-top:32px; padding:20px 0; color:var(--muted); text-align:center; }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo" style="color:#fff;font-weight:700;">Gowtham</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <a class="btn-small" href="resume.pdf" download>Resume</a>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="home">
+
+    <div>
+      <!-- Hero -->
+      <div class="hero-card">
+        <div class="hero-left">
+          <div style="display:flex;gap:10px;margin-bottom:16px;">
+            <div class="badge">HTML</div>
+            <div class="badge">CSS</div>
+            <div class="badge">JS</div>
+          </div>
+
+          <h1>Hi, I'm Gowtham</h1>
+          <p style="color:var(--muted);">Computer Science Engineering student at Malnad College of Engineering. I build web interfaces, visualizers and full-stack student projects.</p>
+
+          <div style="display:flex;gap:12px;margin-top:14px;">
+            <a class="primary-cta" href="#projects">View Projects</a>
+            <a class="ghost-cta" href="resume.pdf" download style="background:var(--accent);color:#000;border:none;">Download Resume</a>
+            <a class="ghost-cta" href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <div class="hero-img-wrap">
+          <img src="myphoto.jpg" alt="Gowtham">
+        </div>
+      </div>
+
+      <!-- About -->
+      <section class="section" id="about">
+        <h2>About</h2>
+        <p class="muted">I enjoy building projects that blend algorithms with UI. Currently working on visualizers, portfolio sites and backend mini-apps.</p>
+      </section>
+
+      <!-- Skills -->
+      <section class="section" id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill"><h3>HTML5</h3><p class="muted">Semantic markup</p></div>
+          <div class="skill"><h3>CSS3</h3><p class="muted">Layouts & UI design</p></div>
+          <div class="skill"><h3>JavaScript</h3><p class="muted">DOM & ES6</p></div>
+          <div class="skill"><h3>PHP & MySQL</h3><p class="muted">Backend basics</p></div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section" id="contact">
+        <h2>Contact</h2>
+
+        <div class="contact-grid">
+          <div class="contact-card"><h4>Location</h4><p class="muted">Hassan, Karnataka</p></div>
+          <div class="contact-card"><h4>Email</h4><p class="muted">gowthamveeraiah76@gmail.com</p></div>
+          <div class="contact-card"><h4>Phone</h4><p class="muted">+91 7676076516</p></div>
+          <div class="contact-card"><h4>Resume</h4><p class="muted"><a href="resume.pdf" download>Download (PDF)</a></p></div>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form" action="contact.php" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="text" name="subject" placeholder="Subject" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+          <button type="submit" class="contact-submit">Send Message</button>
+        </form>
+      </section>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside>
+      <div class="featured">
+        <h3>Featured Projects</h3>
+        <p class="muted">Selected work showcasing my skills.</p>
+
+        <div class="project">
+          <div class="project-thumb"><img src="portf.jpeg"></div>
+          <div>
+            <h4>Portfolio Website</h4>
+            <p class="muted">Built using HTML/CSS/JS/PHP.</p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-thumb"><img src="Graph Visualizer.png"></div>
+          <div>
+            <h4>Graph Visualizer</h4>
+            <p class="muted">BFS/DFS traversal demo.</p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-thumb"><img src="Chat UI Demo.png"></div>
+          <div>
+            <h4>Chat UI Demo</h4>
+            <p class="muted">Modern chat interface.</p>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+  </main>
+
+  <footer>
+    <div class="container small">© 2025 Gowtham — MCE Hassan</div>
+  </footer>
+
+</body>
+</html>
